@@ -1,6 +1,6 @@
 # openwhisk-testdrive
 
-## Prereqquisites
+## Prerequisites
 0. For Windows users, install [Windows Subsystem for Linux (WSL) 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 1. Install [Docker for Desktop](https://www.docker.com/products/docker-desktop)
 2. Enable [Kubernetes in Docker for Desktop](https://docs.docker.com/desktop/kubernetes/)
@@ -91,7 +91,7 @@ wsk -i property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2
 ```
 
 ## Test drive
-1. Try out the sample [helloWorldAction](simple/helloWorldAction.js)
+1. Try out the simple [helloWorldAction](simple/helloWorldAction.js)
 ```
 wsk -i action create helloWorldAction simple/helloWorldAction.js --web true
 wsk -i action invoke helloWorldAction --result --param name Ducmeister
@@ -102,7 +102,13 @@ wsk -i action invoke helloWorldAction --result --param name Ducmeister
 wsk -i action get helloWorldAction --url
 ```
 
-3. Now go and create your own [Actions](https://openwhisk.apache.org/documentation.html)!
+3. Head into the [node-packaging](node-packaging) directory to see an example action built as a Node.js module.  Run [build.sh](node-packaging/build.sh) to create the action.  You can also chain this new action to the previous helloWorldAction:
+```
+wsk -i action create simpleSequence --sequence helloWorldAction,encryptAction
+wsk -i action invoke --result simpleSequence --param name Ducmeister
+```
+
+4. Now go and create your own [Actions](https://openwhisk.apache.org/documentation.html)!
 
 ## Cleanup
 To remove OpenWhisk:

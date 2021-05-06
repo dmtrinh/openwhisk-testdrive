@@ -1,6 +1,6 @@
 # openwhisk-testdrive
 
-## Prequisites
+## Prereqquisites
 0. For Windows users, install [Windows Subsystem for Linux (WSL) 2](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 1. Install [Docker for Desktop](https://www.docker.com/products/docker-desktop)
 2. Enable [Kubernetes in Docker for Desktop](https://docs.docker.com/desktop/kubernetes/)
@@ -91,9 +91,9 @@ wsk -i property set --auth 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2
 ```
 
 ## Test drive
-1. Try out the sample [helloWorldAction](helloWorldAction.js)
+1. Try out the sample [helloWorldAction](simple/helloWorldAction.js)
 ```
-wsk -i action create helloWorldAction helloWorldAction.js --web true
+wsk -i action create helloWorldAction simple/helloWorldAction.js --web true
 wsk -i action invoke helloWorldAction --result --param name Ducmeister
 ```
 
